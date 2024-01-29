@@ -57,7 +57,7 @@ def serviceTester():
         print (response.json())
 
  # Test get_an_averageSalary endpoint
-    api_url = api_base_url + 'average_salary'
+    api_url = api_base_url + '/average_salary'
     print ('Calling GET on endpoint: ' + api_url)
     response = requests.get(api_url)
     print (response.json())
