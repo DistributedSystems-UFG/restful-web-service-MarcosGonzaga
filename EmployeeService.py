@@ -71,7 +71,8 @@ def createEmp():
     dat = {
         'id': request.json['id'],
         'name': request.json['name'],
-        'title': request.json['title']
+        'title': request.json['title'],
+        'salary': request.json['salary']
     }
 
     if dat['id'] is not None and dat['name'] is not None and dat['title'] is not None:
