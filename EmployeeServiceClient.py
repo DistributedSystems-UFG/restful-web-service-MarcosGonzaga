@@ -24,7 +24,7 @@ def serviceTester():
     print ('Calling PUT on endpoint: ' + api_url)
     response = requests.put(api_url, json=update)
     if response.content:
-        print(response.json())
+        print(response)
     else:
         print('No content in the response.')
     
