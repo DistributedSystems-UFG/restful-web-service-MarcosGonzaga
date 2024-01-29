@@ -93,7 +93,7 @@ def deleteEmp(empId):
 @app.route('/empdb/employee/average_salary', methods=['GET'])
 def averageSalary():
     if len(empDB) > 0:
-        total_salary = sum(emp['salary'] for emp in empDB)
+        total_salary = sum(float(emp['salary']) for emp in empDB)
         average_salary = total_salary / len(empDB)
         return jsonify({'average_salary': average_salary})
     else:
