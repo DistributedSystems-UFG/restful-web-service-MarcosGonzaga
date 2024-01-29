@@ -26,7 +26,7 @@ def serviceTester():
     if response.content:
         print(response.json())
     else:
-    print('No content in the response.')
+        print('No content in the response.')
     
     # Test update_salary endpoint
     api_url = api_base_url + '/201'+'/4000'
