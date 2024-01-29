@@ -24,7 +24,7 @@ def serviceTester():
     print ('Calling PUT on endpoint: ' + api_url)
     response = requests.put(api_url, json=update)
     if response.content:
-        print(response)
+        print(response.json())
     else:
         print('No content in the response.')
     
@@ -45,7 +45,7 @@ def serviceTester():
     api_url = api_base_url + '/101'
     print ('Calling DELETE on endpoint: ' + api_url)
     response = requests.delete(api_url)
-    print (response)
+    print (response.json())
 
     # This endpoint does not exist in the service -- will result in an HTTP 404 error
     api_url = api_base_url + '/201/40000/Programmer'
@@ -63,7 +63,7 @@ def serviceTester():
     api_url = api_base_url + '/average_salary'
     print ('Calling GET on endpoint: ' + api_url)
     response = requests.get(api_url)
-    print (response)
+    print (response.json())
 
 if __name__ == '__main__':
     serviceTester()
