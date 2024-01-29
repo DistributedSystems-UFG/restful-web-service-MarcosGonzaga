@@ -162,6 +162,6 @@ curl -X GET http://localhost:5678/empdb/employee/average_salary
 
 To run the application, execute the following command in the terminal:
 ```bash
-python your_filename.py
+python EmployeeService.py
 ```
 The API will be accessible at **http://localhost:5678**. Change the **"const.py"** file, putting the IP and port of your test server. In addition to placing the same port on which the server will be "listening" on line 80 of the **"EmployeeService.py"** file.
