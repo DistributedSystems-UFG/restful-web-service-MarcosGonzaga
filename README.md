@@ -55,7 +55,7 @@ curl -X GET http://localhost:5678/empdb/employee
 }
 ```
 #### 2. Get Employee by ID
-* **Endpoint:** /empdb/employee/<empId>
+* **Endpoint:** /empdb/employee/[empId]
 * **Method:** GET
 * **Description:** Retrieve information about a specific employee by their ID.
 ##### Example Request:
@@ -77,7 +77,7 @@ curl -X GET http://localhost:5678/empdb/employee/101
 ```
 #### 3. Update Employee Information
 ##### 3.1 Update Employee Details
-* **Endpoint:** /empdb/employee/<empId>
+* **Endpoint:** /empdb/employee/[empId]
 * **Method:** PUT
 * **Description:** Update the name and title of a specific employee.
 ##### Example Request:
@@ -96,7 +96,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{"name": "New Name", "title"
 ]
 ```
 ##### 3.2 Update Employee Salary
-* **Endpoint:** /empdb/employee/<empId>/<empSal>
+* **Endpoint:** /empdb/employee/[empId]/[empSal]
 * **Method:** PUT
 * **Description:** Update the salary of a specific employee.
 ##### Example Request:
@@ -131,7 +131,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"id": "301", "name": "John
 }
 ```
 #### 5. Delete Employee
-* **Endpoint:** /empdb/employee/<empId>
+* **Endpoint:** /empdb/employee/[empId]
 * **Method:** DELETE
 * **Description:** Delete a specific employee by their ID.
 ##### Example Request:
