@@ -45,7 +45,7 @@ def serviceTester():
     api_url = api_base_url + '/101'
     print ('Calling DELETE on endpoint: ' + api_url)
     response = requests.delete(api_url)
-    print (response.json())
+    print (response)
 
     # This endpoint does not exist in the service -- will result in an HTTP 404 error
     api_url = api_base_url + '/201/40000/Programmer'
