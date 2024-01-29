@@ -90,7 +90,7 @@ def deleteEmp(empId):
     else:
         abort(404, description="Employee not found")
 
-@app.route('/empdb/average_salary', methods=['GET'])
+@app.route('/empdb/employee/average_salary', methods=['GET'])
 def averageSalary():
     if len(empDB) > 0:
         total_salary = sum(emp['salary'] for emp in empDB)
