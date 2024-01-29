@@ -23,7 +23,10 @@ def serviceTester():
     update = {"title":"Programmer"}
     print ('Calling PUT on endpoint: ' + api_url)
     response = requests.put(api_url, json=update)
-    print (response.json())
+    if response.content:
+        print(response.json())
+    else:
+    print('No content in the response.')
     
     # Test update_salary endpoint
     api_url = api_base_url + '/201'+'/4000'
