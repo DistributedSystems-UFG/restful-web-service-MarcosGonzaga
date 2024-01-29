@@ -63,7 +63,7 @@ def serviceTester():
     api_url = api_base_url + '/average_salary'
     print ('Calling GET on endpoint: ' + api_url)
     response = requests.get(api_url)
-    print (response.json())
+    print (response)
 
 if __name__ == '__main__':
     serviceTester()
