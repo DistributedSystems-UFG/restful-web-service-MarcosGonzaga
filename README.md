@@ -144,10 +144,24 @@ curl -X DELETE http://localhost:5678/empdb/employee/301
   "response": "Success"
 }
 ```
+#### 6. Average Salary
+* **Endpoint:** /empdb/employee/average_salary
+* **Method:** GET
+* **Description:** Retrieve the average salary of all employees.
+##### Example Request:
+```python
+curl -X GET http://localhost:5678/empdb/employee/average_salary
+```
+##### Example Response:
+```json
+{
+  "average_salary": 2400.0
+}
+```
 ### Running the Application
 
 To run the application, execute the following command in the terminal:
 ```bash
 python your_filename.py
 ```
-The API will be accessible at **http://localhost:5678**. Change the "const.py" file, putting the IP and port of your test server. In addition to placing the same port on which the server will be "listening" on line 80 of the "EmployeeService.py" file.
+The API will be accessible at **http://localhost:5678**. Change the **"const.py"** file, putting the IP and port of your test server. In addition to placing the same port on which the server will be "listening" on line 80 of the **"EmployeeService.py"** file.
