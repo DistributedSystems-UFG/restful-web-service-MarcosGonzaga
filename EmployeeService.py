@@ -47,24 +47,38 @@ def updateEmp(empId):
         if 'title' in request.json:
             em[0]['title'] = request.json['title']
 
-    return jsonify(em)
+        return jsonify(em)
+
+    else:
+        abort(404, description="Employee not found")
 
 @app.route('/empdb/employee/<empId>/<empSal>',methods=['PUT'])
 def updateEmpSal(empId,empSal):
+    
     em = [ emp for emp in empDB if (emp['id'] == empId) ]
-    em[0]['salary'] = empSal
-    return jsonify(em)
-   
-@app.route('/empdb/employee',methods=['POST'])
-def createEmp():
 
+    if len(em) > 0:
+        em[0]['salary'] = empSal
+        empDB.append(em[0])
+
+        return jsonify(em)
+
+    else:
+        abort(404, description="Employee not found")
+   
+@app.route('/empdb/employee', methods=['POST'])
+def createEmp():
     dat = {
-    'id':request.json['id'],
-    'name':request.json['name'],
-    'title':request.json['title']
+        'id': request.json['id'],
+        'name': request.json['name'],
+        'title': request.json['title']
     }
-    empDB.append(dat)
-    return jsonify(dat)
+
+    if dat['id'] is not None and dat['name'] is not None and dat['title'] is not None:
+        empDB.append(dat)
+        return jsonify(dat)
+    else:
+        abort(404, description="Employee information incomplete")
 
 @app.route('/empdb/employee/<empId>',methods=['DELETE'])
 def deleteEmp(empId):
@@ -74,7 +88,16 @@ def deleteEmp(empId):
         empDB.remove(em[0])
         return jsonify({'response':'Success'})
     else:
-        return jsonify({'response':'Failure'})
+        abort(404, description="Employee not found")
+
+@app.route('/empdb/average_salary', methods=['GET'])
+def averageSalary():
+    if len(empDB) > 0:
+        total_salary = sum(emp['salary'] for emp in empDB)
+        average_salary = total_salary / len(empDB)
+        return jsonify({'average_salary': average_salary})
+    else:
+        abort(404, description="No employees in the database")
 
 if __name__ == '__main__':
  app.run(host='0.0.0.0', port=5678)
